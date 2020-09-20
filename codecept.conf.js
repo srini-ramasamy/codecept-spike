@@ -5,7 +5,6 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 // setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
-  tests: './*_test.js',
   output: './output',
   helpers: {
     Puppeteer: {
@@ -16,15 +15,22 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
-  bootstrap: null,
   mocha: {},
-  name: 'codecept-spike',
+  bootstrap: null,
+  teardown: null,
+  hooks: [],
+  gherkin: {
+    features: './features/*.feature',
+    steps: ['./step_definitions/steps.js']
+  },
   plugins: {
-    retryFailedStep: {
-      enabled: true
-    },
     screenshotOnFail: {
       enabled: true
+    },
+    retryFailedStep: {
+      enabled: true
     }
-  }
+  },
+  // tests: './*_test.js',
+  name: 'codecept-spike'
 }
