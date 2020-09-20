@@ -1,15 +1,15 @@
 const { setHeadlessWhen } = require('@codeceptjs/configure');
 
 // turn on headless mode when running with HEADLESS=true environment variable
-// export HEADLESS=true && npx codeceptjs run
-setHeadlessWhen(process.env.HEADLESS);
+// commented this because it doesn't seem to like 'show' attribute under helpers
+// setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
   tests: './*_test.js',
   output: './output',
   helpers: {
     Puppeteer: {
-      show: true,
+      show: false,
       windowSize: '1200x900'
     }
   },
