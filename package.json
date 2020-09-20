@@ -4,7 +4,8 @@
   "description": "CodeceptJS spike",
   "main": "index.js",
   "scripts": {
-    "test": "TS_NODE_DEBUG=true TS_NODE_TRANSPILE_ONLY=true codeceptjs run --steps --features --grep @home"
+    "test": "TS_NODE_DEBUG=true TS_NODE_TRANSPILE_ONLY=true codeceptjs run --steps --features --grep @home",
+    "test:puppeteer": "yarn run test -c codecept.puppeteer.conf.js"
   },
   "repository": {
     "type": "git",
