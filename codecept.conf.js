@@ -13,7 +13,7 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.ts'
   },
   mocha: {},
   bootstrap: null,
@@ -21,7 +21,7 @@ exports.config = {
   hooks: [],
   gherkin: {
     features: './features/*.feature',
-    steps: ['./step_definitions/steps.js']
+    steps: ['./step_definitions/steps.ts']
   },
   plugins: {
     screenshotOnFail: {
@@ -32,5 +32,6 @@ exports.config = {
     }
   },
   // tests: './*_test.js',
-  name: 'codecept-spike'
+  name: 'codecept-spike',
+  require: ["ts-node/register"]
 }
