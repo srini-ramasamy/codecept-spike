@@ -7,18 +7,10 @@ const { setHeadlessWhen } = require('@codeceptjs/configure');
 exports.config = {
   output: './output',
   helpers: {
-    WebDriver: {
-      url: 'http://localhost',
-      browser: 'chrome',
-      host: '127.0.0.1',
-      port: 4444,
-      restart: false,
-      windowSize: '1920x1680',
-      desiredCapabilities: {
-        chromeOptions: {
-          args: [ /*"--headless",*/ "--disable-gpu", "--no-sandbox" ]
-        }
-      }
+    Playwright: {
+      url: "http://localhost",
+      show: true,
+      browser: 'webkit'
     }
   },
   include: {
