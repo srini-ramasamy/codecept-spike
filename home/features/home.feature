@@ -5,6 +5,6 @@ Feature: Home page
     Given I open "Google" home page
     Then I see "Google" in the title
 
-  Scenario: Open Yahoo home page
-    Given I open "Yahoo" home page
-    Then I see "Yahoo" in the title
+  Scenario: Open DuckDuckGo home page
+    Given I open "DuckDuckGo" home page
+    Then I see "DuckDuckGo" in the title

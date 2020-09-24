@@ -1,4 +1,5 @@
 const { setHeadlessWhen } = require('@codeceptjs/configure');
+const { gherkinConfig } = require('./codecept.gherkin.conf');
 
 // turn on headless mode when running with HEADLESS=true environment variable
 // commented this because it doesn't seem to like 'show' attribute under helpers
@@ -28,10 +29,7 @@ exports.config = {
   bootstrap: null,
   teardown: null,
   hooks: [],
-  gherkin: {
-    features: './features/*.feature',
-    steps: ['./step_definitions/steps.ts']
-  },
+  gherkin: gherkinConfig,
   plugins: {
     screenshotOnFail: {
       enabled: true
