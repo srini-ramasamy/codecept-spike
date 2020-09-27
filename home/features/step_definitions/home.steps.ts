@@ -1,5 +1,7 @@
 const { I } = inject();
 
+require('../../../include');
+
 Given('I open {string} home page', (name: string) => {
   I.amOnPage(`https://www.${name}.com`);
 });
