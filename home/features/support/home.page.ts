@@ -18,6 +18,10 @@ export class HomePage {
       I.amOnPage(`https://www.${name}.com`);
     }
 
+    navigate() {
+      I.amOnPage(`https://www.google.com`);
+    }
+
     checkTitle(title: string) {
       I.seeInTitle(title);
     }
