@@ -1,7 +1,16 @@
 const { I } = inject();
 
 export class HomePage {
+    
+    root: ".content"
+
+    get className() {
+      return 'HomePage';
+    }
+
     static create(): HomePage {
+      // const homePage = new HomePage();
+      // share ({ homePage });
       return new HomePage();
     }
 

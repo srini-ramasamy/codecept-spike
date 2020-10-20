@@ -29,10 +29,6 @@ exports.config = {
     retryFailedStep: {
       enabled: true
     },
-    wdio: {
-      enabled: true,
-      services: ['selenium-standalone']
-    }
   },
   // tests: './*_test.js',
   name: 'codecept-spike',

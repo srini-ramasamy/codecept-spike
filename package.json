@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/srini-ramasamy/codecept-spike#readme",
   "devDependencies": {
-    "codeceptjs": "^2.6.10",
+    "codeceptjs": "^3.0.0",
     "puppeteer": "^5.3.0",
     "webdriverio": "^6.5.2"
   },
