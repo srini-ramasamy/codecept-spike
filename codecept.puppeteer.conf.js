@@ -27,6 +27,10 @@ exports.config = {
     },
     retryFailedStep: {
       enabled: true
+    },
+    filterTests: {
+      require: "./filterTests.ts",
+      enabled: true
     }
   },
   // tests: './*_test.js',
