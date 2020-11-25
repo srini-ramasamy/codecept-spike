@@ -1,27 +1,28 @@
 const { container: Container, codecept: Codecept } = require('codeceptjs');
-const { gherkinConfig } = require('./codecept.gherkin.conf');
+const cf = require('./codecept.playwright.conf.js').config;
 
-const config = { helpers: { Puppeteer: { show: false } }, gherkin: gherkinConfig };
-const opts = { steps: true, features: true };
+const config = { helpers: cf.helpers, gherkin: cf.gherkin, plugins: cf.plugins };
+const opts = { steps: true, features: true, grep: "\@focus|\@watch" };
 
 // create runner
 const codecept = new Codecept(config, opts);
-
-// initialize codeceptjs in current dir
-codecept.initGlobals(__dirname);
-
-// create helpers, support files, mocha
-Container.create(config, opts);
+codecept.init(__dirname);
 
 // initialize listeners
 codecept.runHooks();
+codecept.bootstrap();
 
-// run bootstrap function from config
-codecept.runBootstrap((err) => {
-
-// load tests
-codecept.loadTests(gherkinConfig.features);
+runTests();
 
 // run tests
-codecept.run();
-}); 
+async function runTests() {
+    try {
+        await codecept.bootstrap();
+        codecept.loadTests();
+        await codecept.run();
+      } catch (err) {
+        process.exitCode = 1;
+      } finally {
+        await codecept.teardown();
+      }
+}
