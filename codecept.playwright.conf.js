@@ -10,8 +10,21 @@ exports.config = {
   helpers: {
     Playwright: {
       url: "http://localhost",
-      show: true,
-      browser: 'webkit'
+      show: false,
+      // restart: false,
+      keepBrowserState: true,
+      browser: 'firefox',
+      manualStart: true,
+      // executablePath: `/Users/srinivasan/Downloads/brw/oldchrome/Chromium.app/Contents/MacOS/chromium`
+      // chromium: {
+      //   executablePath: `/Users/srinivasan/Downloads/brw/oldchrome/Chromium.app/Contents/MacOS/chromium`,
+      // }
+      firefox: {
+        executablePath: `/Users/srinivasan/Downloads/brw/firefox/Nightly.app/Contents/MacOS/firefox`,
+      }
+    },
+    MyHelper: {
+      require: './MyHelper.js'
     }
   },
   include: {
