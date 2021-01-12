@@ -9,4 +9,11 @@ module.exports = function() {
     mocha.suite.suites[0].tests = filteredTests;
   });
 
+  event.dispatcher.on(event.test.before, function (test) {
+    if (test.tags.includes('@skip')) {
+      test.run = function skip() {
+        this.skip()
+      }
+    }
+});
 }
